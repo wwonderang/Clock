@@ -31,4 +31,3 @@ function currentTime() {
 setInterval(currentTime, 200);
 
 currentTime();
-
