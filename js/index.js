@@ -9,23 +9,19 @@ function currentTime() {
   let days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   day.textContent = days[date.getDay()];
 
+  const addZero = (num) => num < 10 ? '0' + num : num;
+
   let h = (date.getHours() % 12);
-  h = h < 10 ? '0' + h : h;
-  hour.textContent = h;
+  hour.textContent = addZero(h);
 
   let m = date.getMinutes();
-  m = m < 10 ? '0' + m : m;
-  min.textContent = m;
+  min.textContent = addZero(m);
 
   let s = date.getSeconds();
-  s = s < 10 ? '0' + s : s;
-  sec.textContent = s;
+  sec.textContent = addZero(s);
 
-  if(date.getHours() < 12) {
-    ampm.textContent = 'AM';
-  } else {
-    ampm.textContent = 'PM';
-  }
+  const typeOfTime = (h) => h < 12 ? 'AM' : 'PM';
+  ampm.textContent = typeOfTime(h);
 }
 
 setInterval(currentTime, 200);
